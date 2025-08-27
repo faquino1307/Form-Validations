@@ -7,8 +7,25 @@
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-  <h1>Hola mundo!</h1>
-  <p>Que pedo?</p>
+  <h1>Hola mundo! Ejemplo de formulario</h1>
+  <div class="container">
+    <form class="form">
+      <h2>Registro</h2>
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+
+      <label for="apellido">Apellido</label>
+      <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido" required>
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="Ingresa tu email" required>
+
+      <label for="curp">CURP</label>
+      <input type="text" id="curp" name="curp" placeholder="Ingresa tu CURP" required>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
   <script src="./js/main.js"></script>
 </body>
 </html>
