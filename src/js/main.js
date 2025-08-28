@@ -1,21 +1,18 @@
-var miCadena = 'Objetos Importantes en JS';
-var miCadena2 = "Mi cadena con 'comillas dobles'";
-console.log('Hola mundo!');
-console.log(miCadena);
-console.log(document); //DOM Document Object Model
-console.log(window);
+import { Validator } from "./common/validations.js";
 
+var validator = new Validator();
 function main(){
-
+    
     //subscripçiones a eventos 
     var buttonSendInfo = document.querySelector('#sendInfo');
     if(buttonSendInfo){
         buttonSendInfo.addEventListener('click',sendInfo);
     } 
 
-    //Continuar
-    
-    
+}
+
+function setElementValidationClass(element, isValid){
+    isValid === true ? element.classList.remove('invalid-input') : element.classList.add('invalid-input');
 }
 
 function sendInfo(){
@@ -41,24 +38,20 @@ function sendInfo(){
         //Validar los inputs
         //nombre debe tener por lo menos 3 carcteres y no contener caracteres especiales.
         var inputName = form.querySelector('input[name=nombre]');
-        var isValidName = true;
         if(inputName){
             var valueName = inputName.value;
-            if(valueName.length < 3)
-                isValidName = false;
-
-            var containsSpecialChars = /[^a-zA-Z\s]/.test(valueName);
-            if(containsSpecialChars)
-                isValidName = false;
-
-            if(!isValidName){
-                 inputName.classList.add('invalid-input');
-            }else{
-                inputName.classList.remove('invalid-input');
-            }
+            var isValidName = validator.validateProperName(valueName);
+            setElementValidationClass(inputName, isValidName);
         }
 
-        
+        //Apellido prácticamente lo mismo que el nombre
+        var inputApellido = form.querySelector('input[name=apellido]');
+        if(inputApellido){
+            //setElementValidationClass(inputApellido, validator.validateProperName(inputApellido.value));
+            var valueApellido = inputApellido.value;
+            var isValidApellido = validator.validateProperName(valueApellido);
+            setElementValidationClass(inputApellido, isValidApellido);
+        }
     }
     
 }
