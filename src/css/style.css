@@ -77,6 +77,20 @@ body {
 .d-none{
   display: none !important;
 }
+
+.data-list {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 4px 12px;
+}
+.data-list dt {
+  font-weight: bold;
+  text-align: right;
+}
+.data-list dd {
+  margin: 0;
+}
+
 /* Responsivo */
 @media (max-width: 480px) {
   .form {
