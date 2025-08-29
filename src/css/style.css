@@ -69,6 +69,14 @@ body {
 .invalid-input{
   border: red solid 3px !important;
 }
+
+.form .error-message{
+  color: red;
+}
+
+.d-none{
+  display: none !important;
+}
 /* Responsivo */
 @media (max-width: 480px) {
   .form {
